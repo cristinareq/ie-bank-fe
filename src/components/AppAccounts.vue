@@ -24,6 +24,7 @@
             <thead>
               <tr>
                 <th scope="col">Account Name</th>
+                <th scope="col">Country</th>
                 <th scope="col">Account Number</th>
                 <th scope="col">Account Balance</th>
                 <th scope="col">Account Currency</th>
@@ -34,9 +35,11 @@
             <tbody>
               <tr v-for="account in accounts" :key="account.id">
                 <td>{{ account.name }}</td>
+                <td>{{ account.country }}</td>
                 <td>{{ account.account_number }}</td>
                 <td>{{ account.balance }}</td>
                 <td>{{ account.currency }}</td>
+                
                 <td>
                   <span
                     v-if="account.status == 'Active'"
@@ -92,6 +95,22 @@
               type="text"
               v-model="createAccountForm.name"
               placeholder="Account Name"
+              required
+            >
+            </b-form-input>
+            
+          </b-form-group>
+
+          <b-form-group
+            id="form-country-group"
+            label="Country:"
+            label-for="form-country-input"
+          >
+            <b-form-input
+              id="form-country-input"
+              type="text"
+              v-model="createAccountForm.country"
+              placeholder="Country"
               required
             >
             </b-form-input>
@@ -156,6 +175,7 @@ export default {
       createAccountForm: {
         name: "",
         currency: "",
+        country: "",
       },
       editAccountForm: {
         id: "",
@@ -257,6 +277,7 @@ export default {
     initForm() {
       this.createAccountForm.name = "";
       this.createAccountForm.currency = "";
+      this.createAccountForm.country = "";
       this.editAccountForm.id = "";
       this.editAccountForm.name = "";
     },
@@ -268,6 +289,7 @@ export default {
       const payload = {
         name: this.createAccountForm.name,
         currency: this.createAccountForm.currency,
+        country: this.createAccountForm.country,
       };
       this.RESTcreateAccount(payload);
       this.initForm();
