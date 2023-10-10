@@ -3,9 +3,7 @@
         <h1>Skull</h1>
         <p>Environment variables read from file {{ env_var_file_name }}</p>
         <p>{{ msg }}, and it is running from the {{ environment }} environment</p>
-        <button type="button" class="btn btn-secondary">
-            Skull button
-        </button>
+        
 
     </div>
 </template>
