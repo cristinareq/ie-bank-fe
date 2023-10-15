@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 
 env:
-  FRONTEND_WEBAPP_DEV: cristinareq-fe-dev
-  FRONTEND_WEBAPP_UAT: cristinareq-fe-uat
+  FRONTEND_WEBAPP_DEV: cristireq-fe-dev
+  FRONTEND_WEBAPP_UAT: cristireq-fe-uat
 
 jobs:
   build:
